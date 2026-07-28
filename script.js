@@ -270,3 +270,68 @@ finalMessage.style.opacity=1;
 },4500);
 
 }
+function startFireworks(){
+
+const box = document.getElementById("fireworks");
+
+let timer = setInterval(()=>{
+
+let cx = Math.random()*window.innerWidth;
+let cy = Math.random()*250+50;
+
+for(let i=0;i<50;i++){
+
+let dot = document.createElement("div");
+
+dot.className="firework";
+
+dot.style.left = cx+"px";
+dot.style.top = cy+"px";
+
+dot.style.background =
+`hsl(${Math.random()*360},100%,60%)`;
+
+box.appendChild(dot);
+
+let angle = Math.random()*Math.PI*2;
+let distance = Math.random()*120+60;
+
+let x = Math.cos(angle)*distance;
+let y = Math.sin(angle)*distance;
+
+dot.animate([
+
+{
+transform:"translate(0,0)",
+opacity:1
+},
+
+{
+transform:`translate(${x}px,${y}px)`,
+opacity:0
+}
+
+],{
+
+duration:1200,
+easing:"ease-out"
+
+});
+
+setTimeout(()=>{
+
+dot.remove();
+
+},1200);
+
+}
+
+},700);
+
+setTimeout(()=>{
+
+clearInterval(timer);
+
+},5000);
+
+}
