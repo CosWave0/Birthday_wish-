@@ -1,0 +1,331 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+overflow:hidden;
+background:#000;
+}
+
+/* Pages */
+
+.page{
+position:absolute;
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+overflow:hidden;
+background:linear-gradient(#060622,#111);
+}
+
+.active{
+display:flex;
+}
+
+/* Stars */
+
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(white 1px,transparent 1px),
+radial-gradient(white 1px,transparent 1px),
+radial-gradient(white 2px,transparent 2px);
+background-size:120px 120px,180px 180px,250px 250px;
+animation:twinkle 4s infinite alternate;
+}
+
+@keyframes twinkle{
+0%{opacity:.4;}
+100%{opacity:1;}
+}
+
+/* Title */
+
+.title{
+position:absolute;
+top:30px;
+color:white;
+font-size:30px;
+text-align:center;
+}
+
+/* Small Heart */
+
+.heart{
+position:absolute;
+width:50px;
+height:50px;
+background:#ff4d88;
+transform:rotate(-45deg);
+top:42%;
+left:65%;
+transition:1s;
+}
+
+.heart::before,
+.heart::after{
+content:"";
+position:absolute;
+width:50px;
+height:50px;
+background:#ff4d88;
+border-radius:50%;
+}
+
+.heart::before{
+top:-25px;
+left:0;
+}
+
+.heart::after{
+left:25px;
+top:0;
+}
+
+/* Bow */
+
+.bow{
+position:absolute;
+left:8%;
+top:45%;
+font-size:90px;
+cursor:pointer;
+user-select:none;
+transition:.2s;
+}
+
+.bow:active{
+transform:scale(.9);
+}
+
+/* Arrow */
+
+.arrow{
+position:absolute;
+left:17%;
+top:48%;
+font-size:55px;
+transition:1s linear;
+}
+
+/* Growing Heart */
+
+.growHeart{
+width:80px;
+height:80px;
+background:#ff3366;
+transform:rotate(-45deg) scale(.3);
+animation:heartbeat 1s infinite;
+}
+
+.growHeart::before,
+.growHeart::after{
+content:"";
+position:absolute;
+width:80px;
+height:80px;
+background:#ff3366;
+border-radius:50%;
+}
+
+.growHeart::before{
+top:-40px;
+}
+
+.growHeart::after{
+left:40px;
+}
+
+/* Heartbeat */
+
+@keyframes heartbeat{
+
+0%{
+transform:rotate(-45deg) scale(.4);
+}
+
+50%{
+transform:rotate(-45deg) scale(.5);
+}
+
+100%{
+transform:rotate(-45deg) scale(.4);
+}
+
+}
+
+/* Wish */
+
+.wish{
+position:absolute;
+text-align:center;
+color:white;
+opacity:0;
+transition:1s;
+padding:20px;
+}
+
+.wish h1{
+font-size:50px;
+margin-bottom:20px;
+color:#ff66aa;
+}
+
+.wish p{
+font-size:24px;
+line-height:40px;
+}
+
+/* Ground */
+
+.ground{
+position:absolute;
+bottom:0;
+width:100%;
+height:160px;
+background:#2d6a1f;
+}
+
+/* Tree */
+
+#tree{
+position:absolute;
+bottom:150px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+/* Trunk */
+
+.trunk{
+width:20px;
+height:20px;
+background:#6b3e26;
+border-radius:10px;
+transition:4s;
+}
+
+/* Branch Container */
+
+#branches{
+position:absolute;
+bottom:140px;
+width:400px;
+height:300px;
+}
+
+/* Leaves */
+
+#leaves{
+position:absolute;
+bottom:130px;
+width:420px;
+height:320px;
+pointer-events:none;
+}
+
+/* Heart Leaves */
+
+.leaf{
+position:absolute;
+width:18px;
+height:18px;
+background:red;
+transform:rotate(-45deg);
+animation:swing 2s infinite alternate;
+}
+
+.leaf::before,
+.leaf::after{
+content:"";
+position:absolute;
+width:18px;
+height:18px;
+border-radius:50%;
+background:inherit;
+}
+
+.leaf::before{
+top:-9px;
+}
+
+.leaf::after{
+left:9px;
+}
+
+@keyframes swing{
+0%{
+transform:rotate(-45deg) translateY(0px);
+}
+100%{
+transform:rotate(-40deg) translateY(-4px);
+}
+}
+
+/* Final Message */
+
+.finalMessage{
+position:absolute;
+bottom:30px;
+text-align:center;
+color:white;
+opacity:0;
+transition:2s;
+padding:20px;
+}
+
+.finalMessage h1{
+font-size:45px;
+color:#ff6699;
+margin-bottom:10px;
+}
+
+.finalMessage p{
+font-size:24px;
+line-height:36px;
+}
+
+/* Responsive */
+
+@media(max-width:700px){
+
+.title{
+font-size:22px;
+}
+
+.bow{
+font-size:70px;
+}
+
+.arrow{
+font-size:42px;
+}
+
+.wish h1{
+font-size:34px;
+}
+
+.wish p{
+font-size:20px;
+line-height:32px;
+}
+
+.finalMessage h1{
+font-size:34px;
+}
+
+.finalMessage p{
+font-size:18px;
+line-height:28px;
+}
+
+}
