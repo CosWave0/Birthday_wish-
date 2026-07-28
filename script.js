@@ -130,6 +130,7 @@ p.remove();
 }
 
 wish.style.opacity=1;
+startFireworks();
 
 setTimeout(showTree,5000);
 
